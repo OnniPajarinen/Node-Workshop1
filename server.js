@@ -1,14 +1,11 @@
-const http = require("http");
+// server.js
+const http = require('http');
 
-http.createServer(function (request, response) {
-    // Tell the browser we are sending an HTML page
-    response.writeHead(200, {'Content-Type': 'text/html'});
+const server = http.createServer((request, response) => {
+  response.writeHead(200, { 'Content-Type': 'text/plain' });
+  response.end('Hello World\\n');
+});
 
-    // Send the HTML content
-    response.end(`
-My First Node.js Server
-`);
+server.listen(8081);
 
-}).listen(8081); // The server will listen on "port 8081"
-
-console.log('Server is running at http://127.0.0.1:8081/');
+console.log('Server running at http://127.0.0.1:8081/');
